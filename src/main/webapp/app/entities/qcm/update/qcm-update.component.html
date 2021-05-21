@@ -1,0 +1,146 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-qcm-heading" data-cy="QcmCreateUpdateHeading" jhiTranslate="edu1App.qcm.home.createOrEditLabel">Create or edit a Qcm</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="edu1App.qcm.question" for="field_question">Question</label>
+          <input type="text" class="form-control" name="question" id="field_question" data-cy="question" formControlName="question" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="edu1App.qcm.choixDispo" for="field_choixDispo">Choix Dispo</label>
+          <input
+            type="text"
+            class="form-control"
+            name="choixDispo"
+            id="field_choixDispo"
+            data-cy="choixDispo"
+            formControlName="choixDispo"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="edu1App.qcm.choixCorrect" for="field_choixCorrect">Choix Correct</label>
+          <input
+            type="text"
+            class="form-control"
+            name="choixCorrect"
+            id="field_choixCorrect"
+            data-cy="choixCorrect"
+            formControlName="choixCorrect"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="edu1App.qcm.createdBy" for="field_createdBy">Created By</label>
+          <input type="text" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="edu1App.qcm.createdDate" for="field_createdDate">Created Date</label>
+          <div class="input-group">
+            <input
+              id="field_createdDate"
+              data-cy="createdDate"
+              type="text"
+              class="form-control"
+              name="createdDate"
+              ngbDatepicker
+              #createdDateDp="ngbDatepicker"
+              formControlName="createdDate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="createdDateDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="edu1App.qcm.deleted" for="field_deleted">Deleted</label>
+          <input type="checkbox" class="form-check" name="deleted" id="field_deleted" data-cy="deleted" formControlName="deleted" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="edu1App.qcm.deletedBy" for="field_deletedBy">Deleted By</label>
+          <input type="text" class="form-control" name="deletedBy" id="field_deletedBy" data-cy="deletedBy" formControlName="deletedBy" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="edu1App.qcm.deletedDate" for="field_deletedDate">Deleted Date</label>
+          <div class="input-group">
+            <input
+              id="field_deletedDate"
+              data-cy="deletedDate"
+              type="text"
+              class="form-control"
+              name="deletedDate"
+              ngbDatepicker
+              #deletedDateDp="ngbDatepicker"
+              formControlName="deletedDate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="deletedDateDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="edu1App.qcm.refcon" for="field_refcon">Refcon</label>
+          <select class="form-control" id="field_refcon" data-cy="refcon" name="refcon" formControlName="refcon">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="conteOption.id === editForm.get('refcon')!.value?.id ? editForm.get('refcon')!.value : conteOption"
+              *ngFor="let conteOption of contesSharedCollection; trackBy: trackConteById"
+            >
+              {{ conteOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="edu1App.qcm.competition" for="field_competition">Competition</label>
+          <select class="form-control" id="field_competition" data-cy="competition" name="competition" formControlName="competition">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                competitionOption.id === editForm.get('competition')!.value?.id ? editForm.get('competition')!.value : competitionOption
+              "
+              *ngFor="let competitionOption of competitionsSharedCollection; trackBy: trackCompetitionById"
+            >
+              {{ competitionOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

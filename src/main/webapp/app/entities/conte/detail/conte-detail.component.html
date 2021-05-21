@@ -1,0 +1,96 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="conte">
+      <h2 data-cy="conteDetailsHeading"><span jhiTranslate="edu1App.conte.detail.title">Conte</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ conte.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.conte.nom">Nom</span></dt>
+        <dd>
+          <span>{{ conte.nom }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.conte.type">Type</span></dt>
+        <dd>
+          <span>{{ conte.type }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.conte.description">Description</span></dt>
+        <dd>
+          <span>{{ conte.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.conte.prix">Prix</span></dt>
+        <dd>
+          <span>{{ conte.prix }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.conte.language">Language</span></dt>
+        <dd>
+          <span>{{ conte.language }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.conte.imageUrl">Image Url</span></dt>
+        <dd>
+          <span>{{ conte.imageUrl }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.conte.titre">Titre</span></dt>
+        <dd>
+          <span>{{ conte.titre }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.conte.nbPage">Nb Page</span></dt>
+        <dd>
+          <span>{{ conte.nbPage }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.conte.maisonEdition">Maison Edition</span></dt>
+        <dd>
+          <span>{{ conte.maisonEdition }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.conte.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ conte.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.conte.createdDate">Created Date</span></dt>
+        <dd>
+          <span>{{ conte.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.conte.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ conte.deleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.conte.deletedBy">Deleted By</span></dt>
+        <dd>
+          <span>{{ conte.deletedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.conte.deletedDate">Deleted Date</span></dt>
+        <dd>
+          <span>{{ conte.deletedDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.conte.auteur">Auteur</span></dt>
+        <dd>
+          <div *ngIf="conte.auteur">
+            <a [routerLink]="['/auteur', conte.auteur?.id, 'view']">{{ conte.auteur?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="edu1App.conte.competition">Competition</span></dt>
+        <dd>
+          <div *ngIf="conte.competition">
+            <a [routerLink]="['/competition', conte.competition?.id, 'view']">{{ conte.competition?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/conte', conte.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="qcmR">
+      <h2 data-cy="qcmRDetailsHeading"><span jhiTranslate="edu1App.qcmR.detail.title">Qcm R</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ qcmR.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.qcmR.question">Question</span></dt>
+        <dd>
+          <span>{{ qcmR.question }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.qcmR.choixParticipant">Choix Participant</span></dt>
+        <dd>
+          <span>{{ qcmR.choixParticipant }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.qcmR.reponse">Reponse</span></dt>
+        <dd>
+          <div *ngIf="qcmR.reponse">
+            <a [routerLink]="['/reponse', qcmR.reponse?.id, 'view']">{{ qcmR.reponse?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/qcm-r', qcmR.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

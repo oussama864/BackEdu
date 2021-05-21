@@ -1,0 +1,59 @@
+{
+  "name": "Reponse",
+  "fields": [
+    {
+      "fieldName": "score",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "deleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "deletedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "deletedDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "qcmR",
+      "otherEntityRelationshipName": "reponse",
+      "relationshipName": "qcmR"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "ecole",
+      "otherEntityRelationshipName": "reponse",
+      "relationshipName": "refEcole"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "competition",
+      "otherEntityRelationshipName": "reponse",
+      "relationshipName": "competition"
+    }
+  ],
+  "entityTableName": "reponse",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210407111254"
+}

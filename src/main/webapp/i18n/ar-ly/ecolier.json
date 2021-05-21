@@ -1,0 +1,39 @@
+{
+  "edu1App": {
+    "ecolier": {
+      "home": {
+        "title": "Ecoliers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Ecolier",
+        "createOrEditLabel": "Create or edit a Ecolier",
+        "notFound": "No Ecoliers found"
+      },
+      "created": "A new Ecolier is created with identifier {{ param }}",
+      "updated": "A Ecolier is updated with identifier {{ param }}",
+      "deleted": "A Ecolier is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ecolier {{ id }}?"
+      },
+      "detail": {
+        "title": "Ecolier"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "refUser": "Ref User",
+      "age": "Age",
+      "niveau": "Niveau",
+      "ecole": "Ecole",
+      "dateDeNaissance": "Date De Naissance",
+      "nomParent": "Nom Parent",
+      "password": "Password",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "deleted": "Deleted",
+      "deletedBy": "Deleted By",
+      "deletedDate": "Deleted Date",
+      "competition": "Competition"
+    }
+  }
+}

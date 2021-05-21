@@ -1,0 +1,31 @@
+{
+  "name": "QcmR",
+  "fields": [
+    {
+      "fieldName": "question",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "choixParticipant",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "reponse",
+      "otherEntityRelationshipName": "qcmR",
+      "relationshipName": "reponse"
+    }
+  ],
+  "entityTableName": "qcm_r",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210407111259"
+}

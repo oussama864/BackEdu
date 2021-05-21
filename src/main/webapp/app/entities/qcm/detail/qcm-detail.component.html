@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="qcm">
+      <h2 data-cy="qcmDetailsHeading"><span jhiTranslate="edu1App.qcm.detail.title">Qcm</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ qcm.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.qcm.question">Question</span></dt>
+        <dd>
+          <span>{{ qcm.question }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.qcm.choixDispo">Choix Dispo</span></dt>
+        <dd>
+          <span>{{ qcm.choixDispo }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.qcm.choixCorrect">Choix Correct</span></dt>
+        <dd>
+          <span>{{ qcm.choixCorrect }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.qcm.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ qcm.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.qcm.createdDate">Created Date</span></dt>
+        <dd>
+          <span>{{ qcm.createdDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.qcm.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ qcm.deleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.qcm.deletedBy">Deleted By</span></dt>
+        <dd>
+          <span>{{ qcm.deletedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.qcm.deletedDate">Deleted Date</span></dt>
+        <dd>
+          <span>{{ qcm.deletedDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.qcm.refcon">Refcon</span></dt>
+        <dd>
+          <div *ngIf="qcm.refcon">
+            <a [routerLink]="['/conte', qcm.refcon?.id, 'view']">{{ qcm.refcon?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="edu1App.qcm.competition">Competition</span></dt>
+        <dd>
+          <div *ngIf="qcm.competition">
+            <a [routerLink]="['/competition', qcm.competition?.id, 'view']">{{ qcm.competition?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/qcm', qcm.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

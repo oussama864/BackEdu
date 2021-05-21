@@ -1,0 +1,145 @@
+
+   entity Auteur {	
+   firstName String
+    lastName String
+    email String
+    password String 
+    refUser String
+    createdBy String
+    createdDate LocalDate
+    deleted Boolean
+    deletedBy String
+    deletedDate LocalDate
+    
+}
+
+entity Ecolier {
+   	firstName String
+    lastName String
+    email String
+    refUser String
+    age Integer
+    niveau String
+    ecole String
+    dateDeNaissance LocalDate
+    nomParent String 
+    password String 
+    createdBy String
+    createdDate LocalDate
+    deleted Boolean
+    deletedBy String
+    deletedDate LocalDate
+}
+entity Ecole {
+	nom String,
+    adresse String,
+    email String,
+    login String,
+    password String,
+    listeClasses String
+    createdBy String
+    createdDate LocalDate
+    deleted Boolean
+    deletedBy String
+    deletedDate LocalDate
+}
+
+
+
+entity Conte {
+	nom String,
+    type String,
+    description String,
+    prix Long,
+    language String,
+    imageUrl String
+    titre String,
+    nbPage Integer,
+    maisonEdition String
+        createdBy String
+    createdDate LocalDate
+    deleted Boolean
+    deletedBy String
+    deletedDate LocalDate
+}
+
+entity Competition {
+  date String,
+  code Double,
+score Integer
+	    createdBy String
+    createdDate LocalDate
+    deleted Boolean
+    deletedBy String
+    deletedDate LocalDate
+}
+
+entity Reponse {
+score Integer
+    createdBy String
+    createdDate LocalDate
+    deleted Boolean
+    deletedBy String
+    deletedDate LocalDate
+}
+
+entity ResultatEcole{
+    createdBy String
+    createdDate LocalDate
+    deleted Boolean
+    deletedBy String
+    deletedDate LocalDate
+}
+entity Participant{
+    createdBy String
+    createdDate LocalDate
+    deleted Boolean
+    deletedBy String
+    deletedDate LocalDate
+}
+entity Localisation {
+lat Double,
+lng Double
+}
+entity Qcm{
+question String,
+choixDispo String,
+choixCorrect String
+ createdBy String
+    createdDate LocalDate
+    deleted Boolean
+    deletedBy String
+    deletedDate LocalDate
+
+}
+entity QcmR{
+question String,
+choixParticipant String,
+}
+
+relationship OneToMany {
+	ResultatEcole to Participant{resultatEcole}
+    Auteur to Conte {auteur}
+    Ecole to Reponse {refEcole}
+    Conte to Qcm {refcon},
+    Reponse to QcmR,
+	Competition to Reponse{competition}
+    Competition to Ecolier
+       Competition to Participant
+     Competition to Qcm
+        Competition to Conte
+         Competition to ResultatEcole
+}
+
+relationship OneToOne {
+    ResultatEcole{ecole} to Ecole,
+	Participant{ecolier} to Ecolier,
+    Participant{reponse} to Reponse,
+    Ecole{localisation} to Localisation
+   
+    
+}
+
+
+
+

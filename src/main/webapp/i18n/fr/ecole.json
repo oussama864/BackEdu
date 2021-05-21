@@ -1,0 +1,36 @@
+{
+  "edu1App": {
+    "ecole": {
+      "home": {
+        "title": "Ecoles",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Ecole",
+        "createOrEditLabel": "Créer ou éditer un Ecole",
+        "notFound": "Aucun Ecole trouvé"
+      },
+      "created": "Un nouveau Ecole a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ecole avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ecole avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Ecole {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ecole"
+      },
+      "id": "ID",
+      "nom": "Nom",
+      "adresse": "Adresse",
+      "email": "Email",
+      "login": "Login",
+      "password": "Password",
+      "listeClasses": "Liste Classes",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "deleted": "Deleted",
+      "deletedBy": "Deleted By",
+      "deletedDate": "Deleted Date",
+      "localisation": "Localisation",
+      "reponse": "Reponse"
+    }
+  }
+}

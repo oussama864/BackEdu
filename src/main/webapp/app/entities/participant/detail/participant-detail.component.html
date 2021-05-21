@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="participant">
+      <h2 data-cy="participantDetailsHeading"><span jhiTranslate="edu1App.participant.detail.title">Participant</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ participant.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.participant.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ participant.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.participant.createdDate">Created Date</span></dt>
+        <dd>
+          <span>{{ participant.createdDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.participant.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ participant.deleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.participant.deletedBy">Deleted By</span></dt>
+        <dd>
+          <span>{{ participant.deletedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.participant.deletedDate">Deleted Date</span></dt>
+        <dd>
+          <span>{{ participant.deletedDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.participant.ecolier">Ecolier</span></dt>
+        <dd>
+          <div *ngIf="participant.ecolier">
+            <a [routerLink]="['/ecolier', participant.ecolier?.id, 'view']">{{ participant.ecolier?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="edu1App.participant.reponse">Reponse</span></dt>
+        <dd>
+          <div *ngIf="participant.reponse">
+            <a [routerLink]="['/reponse', participant.reponse?.id, 'view']">{{ participant.reponse?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="edu1App.participant.resultatEcole">Resultat Ecole</span></dt>
+        <dd>
+          <div *ngIf="participant.resultatEcole">
+            <a [routerLink]="['/resultat-ecole', participant.resultatEcole?.id, 'view']">{{ participant.resultatEcole?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="edu1App.participant.competition">Competition</span></dt>
+        <dd>
+          <div *ngIf="participant.competition">
+            <a [routerLink]="['/competition', participant.competition?.id, 'view']">{{ participant.competition?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/participant', participant.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

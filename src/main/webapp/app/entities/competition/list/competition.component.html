@@ -1,0 +1,149 @@
+<div>
+  <h2 id="page-heading" data-cy="CompetitionHeading">
+    <span jhiTranslate="edu1App.competition.home.title">Competitions</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="edu1App.competition.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-competition"
+        [routerLink]="['/competition/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="edu1App.competition.home.createLabel"> Create a new Competition </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="competitions?.length === 0">
+    <span jhiTranslate="edu1App.competition.home.notFound">No competitions found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="competitions && competitions.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="edu1App.competition.date">Date</span></th>
+          <th scope="col"><span jhiTranslate="edu1App.competition.code">Code</span></th>
+          <th scope="col"><span jhiTranslate="edu1App.competition.score">Score</span></th>
+          <th scope="col"><span jhiTranslate="edu1App.competition.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="edu1App.competition.createdDate">Created Date</span></th>
+          <th scope="col"><span jhiTranslate="edu1App.competition.deleted">Deleted</span></th>
+          <th scope="col"><span jhiTranslate="edu1App.competition.deletedBy">Deleted By</span></th>
+          <th scope="col"><span jhiTranslate="edu1App.competition.deletedDate">Deleted Date</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let competition of competitions; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/competition', competition.id, 'view']">{{ competition.id }}</a>
+          </td>
+          <td>{{ competition.date }}</td>
+          <td>{{ competition.code }}</td>
+          <td>{{ competition.score }}</td>
+          <td>{{ competition.createdBy }}</td>
+          <td>{{ competition.createdDate | formatMediumDate }}</td>
+          <td>{{ competition.deleted }}</td>
+          <td>{{ competition.deletedBy }}</td>
+          <td>{{ competition.deletedDate | formatMediumDate }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/competition', competition.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/competition', competition.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(competition)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+
+              <!-- affecter -->
+
+              <ng-template #content let-modal  >
+                <div class="modal-header" >
+                  <h4 class="modal-title"  id="modal-basic-title" >Competition</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <!--<div class="row">
+                  <div class="col-md-6">
+
+                  </div>
+                  <div class="col-md-6">
+
+                  </div>
+                </div>-->
+                <div class="modal-body" >
+                  <!-- competition -->
+                  <div class="row projects-wrapper" style="height: 60vh ; overflow-y: scroll" >
+                    <div class="col-md-6 mt-4 pt-2" *ngFor="let conte of contes" >
+                      <div class="card courses-desc overflow-hidden rounded shadow border-0" style="position: relative">
+                        <div class="check">
+                          <!-- tw zedha-->
+                          <input type="checkbox" id="{{ conte.id }}" [checked]="checkIfInComptetion(conte)" (change)="check(conte, $event)"   />
+                          <label for="{{ conte.id }}"
+                            ><img src="{{ ressourceUrl + '/api/ImageConte/' + conte.id }}" class="img-fluid rounded work-image" alt=""
+                          /></label>
+                          <!-- tw zedha -->
+
+                          <div class="content pt-3">
+                            <h5 class="mb-1 mt-1 ml-3">
+                              <a routerLink="/page-work-detail" class="text-dark title">Titre : </a>{{ conte.titre }}
+                            </h5>
+                            <h6 class="text-muted tag mb-1 mt-1 ml-3">Prix :{{ conte.prix }}</h6>
+                            <h6 class="text-muted tag mb-1 mt-1 ml-3">nbPage :{{ conte.nbPage }}</h6>
+                            <h6 class="text-muted tag mb-1 mt-1 ml-3" style="max-height: 100px; overflow-y: scroll">
+                              {{ conte.description }}
+                            </h6>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+
+                  <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click'); affecterContes()"
+                  >Save</button>
+                </div>
+              </ng-template>
+
+              <button class="d-none d-md-inline"  (click)="open(content, competition)">
+                <fa-icon icon="plus"></fa-icon>
+                <span class="d-none d-md-inline">Affecter</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

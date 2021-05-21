@@ -1,0 +1,91 @@
+{
+  "name": "Conte",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prix",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "language",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "imageUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "titre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nbPage",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "maisonEdition",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "deleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "deletedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "deletedDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "qcm",
+      "otherEntityRelationshipName": "refcon",
+      "relationshipName": "qcm"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "auteur",
+      "otherEntityRelationshipName": "conte",
+      "relationshipName": "auteur"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "competition",
+      "otherEntityRelationshipName": "conte",
+      "relationshipName": "competition"
+    }
+  ],
+  "entityTableName": "conte",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210407111252"
+}

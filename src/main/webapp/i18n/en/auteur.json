@@ -1,0 +1,34 @@
+{
+  "edu1App": {
+    "auteur": {
+      "home": {
+        "title": "Auteurs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Auteur",
+        "createOrEditLabel": "Create or edit a Auteur",
+        "notFound": "No Auteurs found"
+      },
+      "created": "A new Auteur is created with identifier {{ param }}",
+      "updated": "A Auteur is updated with identifier {{ param }}",
+      "deleted": "A Auteur is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Auteur {{ id }}?"
+      },
+      "detail": {
+        "title": "Auteur"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "password": "Password",
+      "refUser": "Ref User",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "deleted": "Deleted",
+      "deletedBy": "Deleted By",
+      "deletedDate": "Deleted Date",
+      "conte": "Conte"
+    }
+  }
+}

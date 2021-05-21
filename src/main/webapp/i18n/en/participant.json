@@ -1,0 +1,32 @@
+{
+  "edu1App": {
+    "participant": {
+      "home": {
+        "title": "Participants",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Participant",
+        "createOrEditLabel": "Create or edit a Participant",
+        "notFound": "No Participants found"
+      },
+      "created": "A new Participant is created with identifier {{ param }}",
+      "updated": "A Participant is updated with identifier {{ param }}",
+      "deleted": "A Participant is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Participant {{ id }}?"
+      },
+      "detail": {
+        "title": "Participant"
+      },
+      "id": "ID",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "deleted": "Deleted",
+      "deletedBy": "Deleted By",
+      "deletedDate": "Deleted Date",
+      "ecolier": "Ecolier",
+      "reponse": "Reponse",
+      "resultatEcole": "Resultat Ecole",
+      "competition": "Competition"
+    }
+  }
+}

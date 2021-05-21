@@ -1,0 +1,63 @@
+{
+  "name": "Participant",
+  "fields": [
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "deleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "deletedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "deletedDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "ecolier",
+      "otherEntityRelationshipName": "participant",
+      "relationshipName": "ecolier",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "reponse",
+      "otherEntityRelationshipName": "participant",
+      "relationshipName": "reponse",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "resultatEcole",
+      "otherEntityRelationshipName": "participant",
+      "relationshipName": "resultatEcole"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "competition",
+      "otherEntityRelationshipName": "participant",
+      "relationshipName": "competition"
+    }
+  ],
+  "entityTableName": "participant",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210407111256"
+}

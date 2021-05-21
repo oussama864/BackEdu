@@ -1,0 +1,37 @@
+{
+  "edu1App": {
+    "competition": {
+      "home": {
+        "title": "Competitions",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Competition",
+        "createOrEditLabel": "Create or edit a Competition",
+        "notFound": "No Competitions found"
+      },
+      "created": "A new Competition is created with identifier {{ param }}",
+      "updated": "A Competition is updated with identifier {{ param }}",
+      "deleted": "A Competition is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Competition {{ id }}?"
+      },
+      "detail": {
+        "title": "Competition"
+      },
+      "id": "ID",
+      "date": "Date",
+      "code": "Code",
+      "score": "Score",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "deleted": "Deleted",
+      "deletedBy": "Deleted By",
+      "deletedDate": "Deleted Date",
+      "reponse": "Reponse",
+      "ecolier": "Ecolier",
+      "participant": "Participant",
+      "qcm": "Qcm",
+      "conte": "Conte",
+      "resultatEcole": "Resultat Ecole"
+    }
+  }
+}

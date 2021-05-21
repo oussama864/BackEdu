@@ -1,0 +1,94 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ecolier">
+      <h2 data-cy="ecolierDetailsHeading"><span jhiTranslate="edu1App.ecolier.detail.title">Ecolier</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ ecolier.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecolier.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ ecolier.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecolier.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ ecolier.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecolier.email">Email</span></dt>
+        <dd>
+          <span>{{ ecolier.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecolier.refUser">Ref User</span></dt>
+        <dd>
+          <span>{{ ecolier.refUser }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecolier.age">Age</span></dt>
+        <dd>
+          <span>{{ ecolier.age }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecolier.niveau">Niveau</span></dt>
+        <dd>
+          <span>{{ ecolier.niveau }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecolier.ecole">Ecole</span></dt>
+        <dd>
+          <span>{{ ecolier.ecole }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecolier.dateDeNaissance">Date De Naissance</span></dt>
+        <dd>
+          <span>{{ ecolier.dateDeNaissance | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecolier.nomParent">Nom Parent</span></dt>
+        <dd>
+          <span>{{ ecolier.nomParent }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecolier.password">Password</span></dt>
+        <dd>
+          <span>{{ ecolier.password }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecolier.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ ecolier.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecolier.createdDate">Created Date</span></dt>
+        <dd>
+          <span>{{ ecolier.createdDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecolier.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ ecolier.deleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecolier.deletedBy">Deleted By</span></dt>
+        <dd>
+          <span>{{ ecolier.deletedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecolier.deletedDate">Deleted Date</span></dt>
+        <dd>
+          <span>{{ ecolier.deletedDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecolier.competition">Competition</span></dt>
+        <dd>
+          <div *ngIf="ecolier.competition">
+            <a [routerLink]="['/competition', ecolier.competition?.id, 'view']">{{ ecolier.competition?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ecolier', ecolier.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

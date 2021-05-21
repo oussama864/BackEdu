@@ -1,0 +1,32 @@
+{
+  "edu1App": {
+    "reponse": {
+      "home": {
+        "title": "Reponses",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Reponse",
+        "createOrEditLabel": "Create or edit a Reponse",
+        "notFound": "No Reponses found"
+      },
+      "created": "A new Reponse is created with identifier {{ param }}",
+      "updated": "A Reponse is updated with identifier {{ param }}",
+      "deleted": "A Reponse is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Reponse {{ id }}?"
+      },
+      "detail": {
+        "title": "Reponse"
+      },
+      "id": "ID",
+      "score": "Score",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "deleted": "Deleted",
+      "deletedBy": "Deleted By",
+      "deletedDate": "Deleted Date",
+      "qcmR": "Qcm R",
+      "refEcole": "Ref Ecole",
+      "competition": "Competition"
+    }
+  }
+}

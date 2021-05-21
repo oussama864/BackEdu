@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="resultatEcole">
+      <h2 data-cy="resultatEcoleDetailsHeading"><span jhiTranslate="edu1App.resultatEcole.detail.title">Resultat Ecole</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ resultatEcole.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.resultatEcole.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ resultatEcole.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.resultatEcole.createdDate">Created Date</span></dt>
+        <dd>
+          <span>{{ resultatEcole.createdDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.resultatEcole.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ resultatEcole.deleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.resultatEcole.deletedBy">Deleted By</span></dt>
+        <dd>
+          <span>{{ resultatEcole.deletedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.resultatEcole.deletedDate">Deleted Date</span></dt>
+        <dd>
+          <span>{{ resultatEcole.deletedDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.resultatEcole.ecole">Ecole</span></dt>
+        <dd>
+          <div *ngIf="resultatEcole.ecole">
+            <a [routerLink]="['/ecole', resultatEcole.ecole?.id, 'view']">{{ resultatEcole.ecole?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="edu1App.resultatEcole.competition">Competition</span></dt>
+        <dd>
+          <div *ngIf="resultatEcole.competition">
+            <a [routerLink]="['/competition', resultatEcole.competition?.id, 'view']">{{ resultatEcole.competition?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/resultat-ecole', resultatEcole.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+{
+  "edu1App": {
+    "conte": {
+      "home": {
+        "title": "Contes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Conte",
+        "createOrEditLabel": "Create or edit a Conte",
+        "notFound": "No Contes found"
+      },
+      "created": "A new Conte is created with identifier {{ param }}",
+      "updated": "A Conte is updated with identifier {{ param }}",
+      "deleted": "A Conte is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Conte {{ id }}?"
+      },
+      "detail": {
+        "title": "Conte"
+      },
+      "id": "ID",
+      "nom": "Nom",
+      "type": "Type",
+      "description": "Description",
+      "prix": "Prix",
+      "language": "Language",
+      "imageUrl": "Image Url",
+      "titre": "Titre",
+      "nbPage": "Nb Page",
+      "maisonEdition": "Maison Edition",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "deleted": "Deleted",
+      "deletedBy": "Deleted By",
+      "deletedDate": "Deleted Date",
+      "qcm": "Qcm",
+      "auteur": "Auteur",
+      "competition": "Competition"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "edu1App": {
+    "qcmR": {
+      "home": {
+        "title": "Qcm RS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Qcm R",
+        "createOrEditLabel": "Create or edit a Qcm R",
+        "notFound": "No Qcm RS found"
+      },
+      "created": "A new Qcm R is created with identifier {{ param }}",
+      "updated": "A Qcm R is updated with identifier {{ param }}",
+      "deleted": "A Qcm R is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Qcm R {{ id }}?"
+      },
+      "detail": {
+        "title": "Qcm R"
+      },
+      "id": "ID",
+      "question": "Question",
+      "choixParticipant": "Choix Participant",
+      "reponse": "Reponse"
+    }
+  }
+}

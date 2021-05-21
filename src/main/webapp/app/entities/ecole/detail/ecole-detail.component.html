@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ecole">
+      <h2 data-cy="ecoleDetailsHeading"><span jhiTranslate="edu1App.ecole.detail.title">Ecole</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ ecole.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecole.nom">Nom</span></dt>
+        <dd>
+          <span>{{ ecole.nom }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecole.adresse">Adresse</span></dt>
+        <dd>
+          <span>{{ ecole.adresse }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecole.email">Email</span></dt>
+        <dd>
+          <span>{{ ecole.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecole.login">Login</span></dt>
+        <dd>
+          <span>{{ ecole.login }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecole.password">Password</span></dt>
+        <dd>
+          <span>{{ ecole.password }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecole.listeClasses">Liste Classes</span></dt>
+        <dd>
+          <span>{{ ecole.listeClasses }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecole.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ ecole.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecole.createdDate">Created Date</span></dt>
+        <dd>
+          <span>{{ ecole.createdDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecole.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ ecole.deleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecole.deletedBy">Deleted By</span></dt>
+        <dd>
+          <span>{{ ecole.deletedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecole.deletedDate">Deleted Date</span></dt>
+        <dd>
+          <span>{{ ecole.deletedDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.ecole.localisation">Localisation</span></dt>
+        <dd>
+          <div *ngIf="ecole.localisation">
+            <a [routerLink]="['/localisation', ecole.localisation?.id, 'view']">{{ ecole.localisation?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ecole', ecole.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

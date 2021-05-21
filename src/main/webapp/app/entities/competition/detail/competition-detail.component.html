@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="competition">
+      <h2 data-cy="competitionDetailsHeading"><span jhiTranslate="edu1App.competition.detail.title">Competition</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ competition.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.competition.date">Date</span></dt>
+        <dd>
+          <span>{{ competition.date }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.competition.code">Code</span></dt>
+        <dd>
+          <span>{{ competition.code }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.competition.score">Score</span></dt>
+        <dd>
+          <span>{{ competition.score }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.competition.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ competition.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.competition.createdDate">Created Date</span></dt>
+        <dd>
+          <span>{{ competition.createdDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.competition.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ competition.deleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.competition.deletedBy">Deleted By</span></dt>
+        <dd>
+          <span>{{ competition.deletedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.competition.deletedDate">Deleted Date</span></dt>
+        <dd>
+          <span>{{ competition.deletedDate | formatMediumDate }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/competition', competition.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

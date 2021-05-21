@@ -1,0 +1,33 @@
+{
+  "edu1App": {
+    "qcm": {
+      "home": {
+        "title": "Qcms",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Qcm",
+        "createOrEditLabel": "Create or edit a Qcm",
+        "notFound": "No Qcms found"
+      },
+      "created": "A new Qcm is created with identifier {{ param }}",
+      "updated": "A Qcm is updated with identifier {{ param }}",
+      "deleted": "A Qcm is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Qcm {{ id }}?"
+      },
+      "detail": {
+        "title": "Qcm"
+      },
+      "id": "ID",
+      "question": "Question",
+      "choixDispo": "Choix Dispo",
+      "choixCorrect": "Choix Correct",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "deleted": "Deleted",
+      "deletedBy": "Deleted By",
+      "deletedDate": "Deleted Date",
+      "refcon": "Refcon",
+      "competition": "Competition"
+    }
+  }
+}

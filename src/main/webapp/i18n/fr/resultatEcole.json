@@ -1,0 +1,31 @@
+{
+  "edu1App": {
+    "resultatEcole": {
+      "home": {
+        "title": "ResultatEcoles",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Resultat Ecole",
+        "createOrEditLabel": "Créer ou éditer un Resultat Ecole",
+        "notFound": "Aucun Resultat Ecole trouvé"
+      },
+      "created": "Un nouveau Resultat Ecole a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Resultat Ecole avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Resultat Ecole avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Resultat Ecole {{ id }} ?"
+      },
+      "detail": {
+        "title": "Resultat Ecole"
+      },
+      "id": "ID",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "deleted": "Deleted",
+      "deletedBy": "Deleted By",
+      "deletedDate": "Deleted Date",
+      "ecole": "Ecole",
+      "participant": "Participant",
+      "competition": "Competition"
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "name": "Competition",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "code",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "score",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "deleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "deletedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "deletedDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "reponse",
+      "otherEntityRelationshipName": "competition",
+      "relationshipName": "reponse"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "ecolier",
+      "otherEntityRelationshipName": "competition",
+      "relationshipName": "ecolier"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "participant",
+      "otherEntityRelationshipName": "competition",
+      "relationshipName": "participant"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "qcm",
+      "otherEntityRelationshipName": "competition",
+      "relationshipName": "qcm"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "conte",
+      "otherEntityRelationshipName": "competition",
+      "relationshipName": "conte"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "resultatEcole",
+      "otherEntityRelationshipName": "competition",
+      "relationshipName": "resultatEcole"
+    }
+  ],
+  "entityTableName": "competition",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210407111253"
+}

@@ -1,0 +1,112 @@
+<div>
+  <h2 id="page-heading" data-cy="EcolierHeading">
+    <span jhiTranslate="edu1App.ecolier.home.title">Ecoliers</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="edu1App.ecolier.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-ecolier"
+        [routerLink]="['/ecolier/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="edu1App.ecolier.home.createLabel"> Create a new Ecolier </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="ecoliers?.length === 0">
+    <span jhiTranslate="edu1App.ecolier.home.notFound">No ecoliers found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="ecoliers && ecoliers.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="edu1App.ecolier.firstName">First Name</span></th>
+          <th scope="col"><span jhiTranslate="edu1App.ecolier.lastName">Last Name</span></th>
+          <th scope="col"><span jhiTranslate="edu1App.ecolier.email">Email</span></th>
+          <th scope="col"><span jhiTranslate="edu1App.ecolier.refUser">Ref User</span></th>
+          <th scope="col"><span jhiTranslate="edu1App.ecolier.age">Age</span></th>
+          <th scope="col"><span jhiTranslate="edu1App.ecolier.niveau">Niveau</span></th>
+          <th scope="col"><span jhiTranslate="edu1App.ecolier.ecole">Ecole</span></th>
+          <th scope="col"><span jhiTranslate="edu1App.ecolier.dateDeNaissance">Date De Naissance</span></th>
+          <th scope="col"><span jhiTranslate="edu1App.ecolier.nomParent">Nom Parent</span></th>
+          <th scope="col"><span jhiTranslate="edu1App.ecolier.password">Password</span></th>
+          <th scope="col"><span jhiTranslate="edu1App.ecolier.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="edu1App.ecolier.createdDate">Created Date</span></th>
+          <th scope="col"><span jhiTranslate="edu1App.ecolier.deleted">Deleted</span></th>
+          <th scope="col"><span jhiTranslate="edu1App.ecolier.deletedBy">Deleted By</span></th>
+          <th scope="col"><span jhiTranslate="edu1App.ecolier.deletedDate">Deleted Date</span></th>
+          <th scope="col"><span jhiTranslate="edu1App.ecolier.competition">Competition</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ecolier of ecoliers; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/ecolier', ecolier.id, 'view']">{{ ecolier.id }}</a>
+          </td>
+          <td>{{ ecolier.firstName }}</td>
+          <td>{{ ecolier.lastName }}</td>
+          <td>{{ ecolier.email }}</td>
+          <td>{{ ecolier.refUser }}</td>
+          <td>{{ ecolier.age }}</td>
+          <td>{{ ecolier.niveau }}</td>
+          <td>{{ ecolier.ecole }}</td>
+          <td>{{ ecolier.dateDeNaissance | formatMediumDate }}</td>
+          <td>{{ ecolier.nomParent }}</td>
+          <td>{{ ecolier.password }}</td>
+          <td>{{ ecolier.createdBy }}</td>
+          <td>{{ ecolier.createdDate | formatMediumDate }}</td>
+          <td>{{ ecolier.deleted }}</td>
+          <td>{{ ecolier.deletedBy }}</td>
+          <td>{{ ecolier.deletedDate | formatMediumDate }}</td>
+          <td>
+            <div *ngIf="ecolier.competition">
+              <a [routerLink]="['/competition', ecolier.competition?.id, 'view']">{{ ecolier.competition?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/ecolier', ecolier.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/ecolier', ecolier.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(ecolier)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

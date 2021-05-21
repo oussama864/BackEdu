@@ -1,0 +1,24 @@
+{
+  "name": "Localisation",
+  "fields": [
+    {
+      "fieldName": "lat",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "lng",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "localisation",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210407111257"
+}

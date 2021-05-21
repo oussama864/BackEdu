@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="auteur">
+      <h2 data-cy="auteurDetailsHeading"><span jhiTranslate="edu1App.auteur.detail.title">Auteur</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ auteur.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.auteur.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ auteur.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.auteur.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ auteur.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.auteur.email">Email</span></dt>
+        <dd>
+          <span>{{ auteur.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.auteur.password">Password</span></dt>
+        <dd>
+          <span>{{ auteur.password }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.auteur.refUser">Ref User</span></dt>
+        <dd>
+          <span>{{ auteur.refUser }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.auteur.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ auteur.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.auteur.createdDate">Created Date</span></dt>
+        <dd>
+          <span>{{ auteur.createdDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.auteur.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ auteur.deleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.auteur.deletedBy">Deleted By</span></dt>
+        <dd>
+          <span>{{ auteur.deletedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="edu1App.auteur.deletedDate">Deleted Date</span></dt>
+        <dd>
+          <span>{{ auteur.deletedDate | formatMediumDate }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/auteur', auteur.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
