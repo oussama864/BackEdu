@@ -14,6 +14,7 @@ export interface IAuteur {
   deletedBy?: string | null;
   deletedDate?: dayjs.Dayjs | null;
   contes?: IConte[] | null;
+  points?: number ;
 }
 
 export class Auteur implements IAuteur {
@@ -29,7 +30,9 @@ export class Auteur implements IAuteur {
     public deleted?: boolean | null,
     public deletedBy?: string | null,
     public deletedDate?: dayjs.Dayjs | null,
-    public contes?: IConte[] | null
+    public contes?: IConte[] | null,
+    public points?:number
+
   ) {
     this.deleted = this.deleted ?? false;
   }

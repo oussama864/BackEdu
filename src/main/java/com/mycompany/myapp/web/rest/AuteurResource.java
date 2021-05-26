@@ -56,6 +56,15 @@ public class AuteurResource {
             .body(result);
     }
 
+    @PutMapping("/auteurs")
+    public ResponseEntity<Auteur> updateeAuteur(@RequestBody Auteur auteur) throws URISyntaxException {
+        Auteur result = auteurRepository.save(auteur);
+        return ResponseEntity
+            .created(new URI("/api/auteurs/" + result.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId()))
+            .body(result);
+    }
+
     /**
      * {@code PUT  /auteurs/:id} : Updates an existing auteur.
      *

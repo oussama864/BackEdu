@@ -6,7 +6,7 @@ import { CompetitionService } from '../service/competition.service';
 import { CompetitionDeleteDialogComponent } from '../delete/competition-delete-dialog.component';
 import { IConte } from 'app/entities/conte/conte.model';
 import { ConteService } from 'app/entities/conte/service/conte.service';
-import {elementAt} from "rxjs/operators";
+
 
 @Component({
   selector: 'jhi-competition',
@@ -50,7 +50,10 @@ export class CompetitionComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadAll();
-    this.conteService.query().subscribe(res => {
+    /* jeb conte b3d date li aa3tethlik fil front */
+    const  date = new Date();
+    const firstDay = new Date(date.getFullYear(), date.getMonth(), 20);
+    this.conteService.queryReadyForCompetion(firstDay).subscribe  (res => {
       this.contes = res.body;
     });
   }

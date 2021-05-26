@@ -165,6 +165,7 @@ public class UserService {
             auteur.setFirstName(userDTO.getFirstName());
             auteur.setLastName(userDTO.getLastName());
             auteur.setRefUser(user.getId());
+            auteur.setPoints(1000);
             auteurRepository.save(auteur);
         } else if (userDTO.getAuthorities().contains("ROLE_ECOLE")) {
             Ecole ecole = new Ecole();

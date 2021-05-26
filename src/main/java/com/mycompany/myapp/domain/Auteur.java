@@ -51,6 +51,11 @@ public class Auteur implements Serializable {
     @Field("deleted_date")
     private LocalDate deletedDate;
 
+
+
+    @Field("points")
+    private int points;
+
     @DBRef
     @Field("conte")
     @JsonIgnoreProperties(value = { "qcms", "auteur", "competition" }, allowSetters = true)
@@ -229,6 +234,13 @@ public class Auteur implements Serializable {
             contes.forEach(i -> i.setAuteur(this));
         }
         this.contes = contes;
+    }
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here

@@ -5,6 +5,7 @@ import com.mycompany.myapp.repository.CompetitionRepository;
 import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -181,6 +182,10 @@ public class CompetitionResource {
         Optional<Competition> competition = competitionRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(competition);
     }
+
+
+
+
 
     /**
      * {@code DELETE  /competitions/:id} : delete the "id" competition.

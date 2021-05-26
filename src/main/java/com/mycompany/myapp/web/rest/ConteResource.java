@@ -14,6 +14,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -236,6 +237,12 @@ public class ConteResource {
     public List<Conte> getAllContes() {
         log.debug("REST request to get all Contes");
         return conteRepository.findAll();
+    }
+    /* date*/
+    @PostMapping("/contes/readyForCompetition")
+    public List<Conte> getContesReadyForComp(@RequestBody Date date) {
+        log.debug("REST request to get all Contes ready for competition");
+        return conteRepository.findByReadyForCompetetionIsTrueAndReadyForCompetitionDateAfter(date);
     }
 
     /* jeb les contes bel auteur kol wa7da*/

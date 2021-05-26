@@ -36,6 +36,11 @@ export class ConteService {
     const options = createRequestOption(req);
     return this.http.get<IConte[]>(this.resourceUrl, { params: options, observe: 'response' });
   }
+  /* readyforcompetition */
+  queryReadyForCompetion(date: Date): Observable<EntityArrayResponseType>{
+    return this.http.post<IConte[]>(this.resourceUrl+'/readyForCompetition',date, { observe: 'response' } );
+
+  }
 
   delete(id: string): Observable<HttpResponse<{}>> {
     return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
